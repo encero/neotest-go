@@ -158,14 +158,14 @@ end
 
 ---@param tree neotest.Tree
 ---@return string
-function utils.get_prefix(tree)
+function utils.get_test_id(tree)
   local parts = {}
 
   -- build test name for potentially deeply nested tests
   while tree and tree:data().type == "test" do
     local name = tree:data().name
     name = name:gsub("[\"']", "") -- Remove quotes
-    name = name:gsub("%s", "_")   -- Replace spaces with underscores
+    name = name:gsub("%s", "_") -- Replace spaces with underscores
 
     table.insert(parts, 1, name)
 
